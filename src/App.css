@@ -6,9 +6,7 @@ gap:10px;
 flex-wrap: wrap;
 justify-content: center;
 
-
 }
-
 
 .card{width:200px;
 
@@ -65,9 +63,12 @@ overflow-y: hidden;
   color: white;
 }
 .Favourite{
-  width:100%;
+  width:auto;
   height:100px;
   background-color: aqua;
+  position: sticky;
+  top:10px;
+ z-index: 1;
 }
 
 .Favourite .container-fluid {
@@ -76,7 +77,7 @@ display:flex;
 gap:5px;
 justify-content: space-around;
 align-items: center;
-overflow-x: auto;
+overflow-x: scroll;
 }
 
 .Favourite .container-fluid .favourite-circle{
@@ -86,9 +87,25 @@ overflow-x: auto;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  position:relative;
+
   
 }
+.favourite-circle i{
+position:absolute;
+top:5px;
+  right:5px;
+  transition:.3s linear;
+}
+.favourite-circle i:hover{
+
+  transform:scale(1.1);
+  color:red;
+}
+
 .favourite-circle img{
+  
+  
   object-fit: cover;
   width:70px;
   border-radius: 50%;

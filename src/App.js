@@ -53,13 +53,14 @@ export const Search = () => {
   );
 };
 export const Favourite = () => {
-  const { favourite } = useContext(userContext);
+  const { favourite, removeFavourite } = useContext(userContext);
   console.log(favourite);
   return (favourite.length>0 &&
     (<div className="Favourite">
       <div className="container-fluid">
         {favourite.map((value) => (
           <div className="favourite-circle">
+             <i className="bi bi-x-lg close" onClick={()=>removeFavourite(value.idMeal)}></i>
             <img src={value.strMealThumb} alt="" />
             <p className="favTitle">{value.strMeal}</p>
           </div>

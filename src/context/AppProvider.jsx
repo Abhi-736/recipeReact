@@ -54,6 +54,10 @@ const newFavMeal=MealArray.filter((value)=>value.idMeal===id)
 
 
 }
+const removeFavourite=(id)=>{
+const newFavourite= favourite.filter((value)=>value.idMeal!==id)
+setFavourite(newFavourite)
+}
 
 
   const contextStore = { 
@@ -65,7 +69,9 @@ fetchMeals,
 openMedalDescription,
 favourite,
 addFavourite,
-setselectedMeal };
+setselectedMeal,
+removeFavourite,
+ };
 
 
   return (
