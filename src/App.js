@@ -53,20 +53,24 @@ export const Search = () => {
   );
 };
 export const Favourite = () => {
-  return (
-    <div className="Favourite">
+  const { favourite } = useContext(userContext);
+  console.log(favourite);
+  return (favourite.length>0 &&
+    (<div className="Favourite">
       <div className="container-fluid">
-        {/* map */}
-        <div className="favourite-circle">
-          <img src="" alt="" />
-        </div>
+        {favourite.map((value) => (
+          <div className="favourite-circle">
+            <img src={value.strMealThumb} alt="" />
+            <p className="favTitle">{value.strMeal}</p>
+          </div>
+        ))}
       </div>
-    </div>
+    </div>)
   );
 };
 
 export const Home = () => {
-  const { Loading, MealArray, openMedalDescription, selectedMeal } =
+  const { Loading, MealArray, openMedalDescription, selectedMeal,addFavourite } =
     useContext(userContext);
 
   return (
@@ -93,7 +97,7 @@ export const Home = () => {
                   </p>
                   <i
                     onClick={() => {
-                      console.log("clicked i");
+                      addFavourite(card.idMeal);
                     }}
                     class="bi bi-hand-thumbs-up"
                   ></i>
@@ -112,25 +116,38 @@ export const Loader = () => {
 };
 
 export const MealDescription = () => {
-  const { selectedMeal } = React.useContext(userContext);
+  const { selectedMeal, addFavourite, setselectedMeal } = React.useContext(userContext);
 
   return (
     <div className="MealInfo d-flex">
       <div className="MealInfoContainer d-flex flex-column justify-center">
         <img src={selectedMeal.strMealThumb} alt="MealThumb" />
-        <i className="bi bi-x-lg close"></i>
-        <div className="header">{selectedMeal.strMeal}</div>
+        <i className="bi bi-x-lg close" onClick={()=>setselectedMeal('')}></i>
+        <div className="header text-center mt-1">
+          <h3>{selectedMeal.strMeal}</h3>
+        </div>
         <div className="description">{selectedMeal.strInstructions}</div>
-        <div className="sources d-flex ">
-          <button type="button" className="btn -btn-danger">
-            {" "}
-            Youtube
-          </button>
-          <button type="button" className="btn -btn-success">
+        <div className="sources d-flex my-3 justify-content-around ">
+          <button
+            type="button"
+            onClick={() => addFavourite(selectedMeal.idMeal)}
+            className="btn btn-success"
+          >
             Add To Favourite
           </button>
-          <button type="button" className="btn -btn-success">
-            Source
+
+          <button type="button" className="btn btn-danger">
+            <a href={selectedMeal.strYoutube} target="_blank" rel="noreferrer">
+              {" "}
+              Youtube
+            </a>
+          </button>
+
+          <button type="button" className="btn btn-success">
+            <a href={selectedMeal.strSource} target="_blank" rel="noreferrer">
+              {" "}
+              Source
+            </a>
           </button>
         </div>
       </div>

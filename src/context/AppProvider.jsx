@@ -8,7 +8,8 @@ const randomMealUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
 const AppProvider = ({ children }) => {
   const [MealArray, setMealArray] = React.useState([]);
   const [Loading, setLoading] = React.useState(false);
-  const [selectedMeal, setselectedMeal]= React.useState('')
+  const [selectedMeal, setselectedMeal]= React.useState('');
+  const [favourite, setFavourite]= React.useState([])
 
   const fetchMeals = (url) => {
     setLoading(true);
@@ -44,13 +45,28 @@ const AppProvider = ({ children }) => {
     setselectedMeal(card)
 console.log(card)
   }
+
+  const addFavourite=(id)=>{
+const newFavMeal=MealArray.filter((value)=>value.idMeal===id)
+  favourite.length===0?
+  setFavourite([...newFavMeal]):
+!favourite.find((value)=>value.idMeal===id)&&setFavourite(value=>[...value,...newFavMeal])
+
+
+}
+
+
   const contextStore = { 
 fetchMeals,
   fetchRandom,
   Loading,
  MealArray,
   selectedMeal,
-openMedalDescription };
+openMedalDescription,
+favourite,
+addFavourite,
+setselectedMeal };
+
 
   return (
     <userContext.Provider value={contextStore}>{children}</userContext.Provider>
