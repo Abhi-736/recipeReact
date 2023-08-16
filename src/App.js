@@ -28,21 +28,22 @@ export const Search = () => {
 
   return (
     <nav className="navbar bg-body-tertiary">
-      <div className="container-fluid d-flex justify-content-start gap-2 ">
+      <div className="container-fluid d-flex justify-content-center gap-2 ">
         <form className="d-flex" role="search" onSubmit={handleSubmit}>
           <input
             className="form-control me-2"
+            
             type="search"
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search"
+            placeholder="Type a Dish"
             aria-label="Search"
           />
-          <button className="btn btn-outline-success " type="submit">
+          <button className="btn btn-sm btn-outline-success " type="submit">
             Search
           </button>
         </form>
         <button
-          className="btn btn-outline-danger ms-0"
+          className="btn btn-sm btn-outline-danger ms-0"
           onClick={fetchRandom}
           type="submit"
         >
@@ -132,19 +133,19 @@ export const MealDescription = () => {
           <button
             type="button"
             onClick={() => addFavourite(selectedMeal.idMeal)}
-            className="btn btn-success"
+            className="btn btn-sm btn-success"
           >
-            Add To Favourite
+            Add To<br/> Favourite
           </button>
 
-          <button type="button" className="btn btn-danger">
+          <button type="button" className="btn btn-sm btn-danger">
             <a href={selectedMeal.strYoutube} target="_blank" rel="noreferrer">
               {" "}
               Youtube
             </a>
           </button>
 
-          <button type="button" className="btn btn-success">
+          <button type="button" className="btn btn-sm btn-success">
             <a href={selectedMeal.strSource} target="_blank" rel="noreferrer">
               {" "}
               Source

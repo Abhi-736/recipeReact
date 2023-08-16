@@ -34,7 +34,7 @@ z-index: 3;
   justify-content: space-between;
   height:100vh;
   background-color:white;
-  width:50%;
+  width:60%;
   overflow-y: auto;
   position:relative;
   border-radius:10px;
@@ -120,4 +120,67 @@ top:5px;
   object-fit: cover;
   width:70px;
   border-radius: 50%;
+}
+
+@media (max-width: 1000px){
+
+  
+    
+    .MealInfoContainer{
+      justify-content: space-between;
+      height:100vh;
+      background-color:white;
+      width:80%;
+      overflow-y: auto;
+      position:relative;
+      border-radius:10px;
+      
+      
+    }
+
+  
+}
+
+@media (max-width:500px){
+
+
+ 
+  
+  .Favourite .container-fluid {
+  
+  gap:10px;
+  
+  }
+  
+  .Favourite .container-fluid .favourite-circle{
+    height:auto;
+   align-items: center;
+    gap:3px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position:relative;
+  
+    
+  }
+  .favourite-circle i{
+  position:absolute;
+  top:5px;
+    right:5px;
+    transition:.3s linear;
+    z-index: 4;
+  }
+  .favourite-circle i:hover{
+  
+    transform:scale(1.1);
+    color:red;
+  }
+  
+  .favourite-circle img{
+    
+    
+    object-fit: cover;
+    width:50px;
+    border-radius: 50%;
+  }
 }
