@@ -13,6 +13,7 @@ const AppProvider = ({ children }) => {
 
   const fetchMeals = (url) => {
     setLoading(true);
+    
     let finalURL = `${allMealsUrl}${url}`;
     fetch(finalURL)
       .then((res) => res.json())
