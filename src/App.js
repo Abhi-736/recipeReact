@@ -58,7 +58,7 @@ export const Favourite = () => {
   console.log(favourite);
   return (favourite.length>0 &&
     (<div className="Favourite pt-2 mb-2">
-      <div className="container-fluid">
+      <div className="Favourite-container">
         {favourite.map((value) => (
           <div className="favourite-circle">
              <i className="bi bi-x-lg close" onClick={()=>removeFavourite(value.idMeal)}></i>

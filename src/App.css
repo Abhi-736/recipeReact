@@ -6,11 +6,9 @@ display:flex;
 gap:10px;
 flex-wrap: wrap;
 justify-content: center;
-
 }
 
 .card{width:200px;
-
 }
 
 .card-body{
@@ -18,6 +16,7 @@ justify-content: center;
   justify-content: space-between;
   padding:5px;
 }
+
 .MealInfo{
 height:100vh;
 position:fixed;
@@ -38,15 +37,12 @@ z-index: 3;
   overflow-y: auto;
   position:relative;
   border-radius:10px;
-  
-  
 }
+
 .MealInfoContainer img{
   object-fit: cover;
   height:400px;
-  
 }
-
 
 .MealInfoContainer .close{
   position:absolute;
@@ -61,17 +57,17 @@ z-index: 3;
 .MealInfoContainer .close:hover{
   transform: scale(1.5);
   color:red
-  
 }
 
 .MealInfoContainer .description{
-
   padding:10px
 }
+
 .sources .btn a{
   text-decoration: none;
   color: white;
 }
+
 .Favourite{
   width:auto;
   height:auto;
@@ -79,19 +75,19 @@ z-index: 3;
   position: sticky;
   top:0px;
  z-index: 1;
- 
+ overflow-x: auto;
 }
 
-.Favourite .container-fluid {
-
+.Favourite .Favourite-container {
 display:flex;
+width:auto;
 gap:15px;
 justify-content: flex-start;
 align-items: center;
-
+overflow-x: auto;
 }
 
-.Favourite .container-fluid .favourite-circle{
+.Favourite .Favourite-container .favourite-circle{
   height:auto;
  align-items: center;
   gap:5px;
@@ -99,9 +95,11 @@ align-items: center;
   display: flex;
   flex-direction: column;
   position:relative;
-
-  
+  flex-shrink: 0;
+  text-align: center;
+  width:100px
 }
+
 .favourite-circle i{
 position:absolute;
 top:5px;
@@ -115,8 +113,6 @@ top:5px;
 }
 
 .favourite-circle img{
-  
-  
   object-fit: cover;
   width:70px;
   border-radius: 50%;
@@ -124,63 +120,30 @@ top:5px;
 
 @media (max-width: 1000px){
 
-  
-    
     .MealInfoContainer{
       justify-content: space-between;
-      height:100vh;
-      background-color:white;
       width:80%;
-      overflow-y: auto;
-      position:relative;
-      border-radius:10px;
-      
-      
     }
-
-  
 }
 
 @media (max-width:500px){
 
+  .card{width:100px;
+  }
 
- 
-  
-  .Favourite .container-fluid {
-  
+  .Favourite .Favourite-container {
   gap:10px;
-  
   }
-  
-  .Favourite .container-fluid .favourite-circle{
-    height:auto;
-   align-items: center;
-    gap:3px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    position:relative;
-  
-    
-  }
+
   .favourite-circle i{
-  position:absolute;
-  top:5px;
-    right:5px;
-    transition:.3s linear;
     z-index: 4;
   }
-  .favourite-circle i:hover{
-  
-    transform:scale(1.1);
-    color:red;
-  }
-  
-  .favourite-circle img{
-    
-    
-    object-fit: cover;
+
+  .favourite-circle img{  
     width:50px;
-    border-radius: 50%;
+  }
+
+  .favourite-circle p{
+    font-size: small;
   }
 }
