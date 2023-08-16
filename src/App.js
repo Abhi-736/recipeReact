@@ -28,7 +28,7 @@ export const Search = () => {
 
   return (
     <nav className="navbar bg-body-tertiary">
-      <div className="container-fluid">
+      <div className="container-fluid d-flex justify-content-start gap-2 ">
         <form className="d-flex" role="search" onSubmit={handleSubmit}>
           <input
             className="form-control me-2"
@@ -56,7 +56,7 @@ export const Favourite = () => {
   const { favourite, removeFavourite,openMedalDescription } = useContext(userContext);
   console.log(favourite);
   return (favourite.length>0 &&
-    (<div className="Favourite pt-2">
+    (<div className="Favourite pt-2 mb-2">
       <div className="container-fluid">
         {favourite.map((value) => (
           <div className="favourite-circle">
@@ -121,7 +121,7 @@ export const MealDescription = () => {
 
   return (
     <div className="MealInfo d-flex">
-      <div className="MealInfoContainer d-flex flex-column justify-center">
+      <div className="MealInfoContainer d-flex flex-column ">
         <img src={selectedMeal.strMealThumb} alt="MealThumb" />
         <i className="bi bi-x-lg close" onClick={()=>setselectedMeal('')}></i>
         <div className="header text-center mt-1">
